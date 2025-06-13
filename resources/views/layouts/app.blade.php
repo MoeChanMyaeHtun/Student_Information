@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="{{asset('css/all.css')}}" />
     <link rel="stylesheet" href="{{asset('css/all.min.css')}}" />
     <link rel="stylesheet" href="{{asset('css/fontawesome.min.css')}}" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/twitter-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap5.css')}}">
 
 </head>
 
@@ -39,13 +39,15 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
-    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.js"></script>
-    <script src="https://cdn.datatables.net/fixedcolumns/5.0.4/js/dataTables.fixedColumns.js"></script>
-    <script src="https://cdn.datatables.net/fixedcolumns/5.0.4/js/fixedColumns.dataTables.js"></script>
-    <script src="https://kit.fontawesome.com/8a78536087.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="{{ asset('js/jquery-3.7.1.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.js') }}"></script>
+    <script src="{{ asset('js/dataTables.bootstrap5.js') }}"></script>
+    <script src="{{ asset('js/dataTables.fixedColumns.js') }}"></script>
+    <script src="{{ asset('js/fixedColumns.dataTables.js') }}"></script>
+    <script src="{{ asset('js/8a78536087.js') }}"></script>
+
     <script>
         $(document).ready(function() {
             $('#studentsTable').DataTable({
