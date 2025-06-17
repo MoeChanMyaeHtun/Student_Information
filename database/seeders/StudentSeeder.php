@@ -72,7 +72,7 @@ class StudentSeeder extends Seeder
                 'address' => '101 Maple St',
                 'enrollment_date' => '2018-09-01',
                 'department_id' => 1,
-                'current_semester' => 'Finished',
+                'current_semester' => '1st year 2nd semester',
                 'status' => 'Graduated',
                 'photo_url' => 'https://example.com/photos/emma.jpg',
                 'created_at' => now(),

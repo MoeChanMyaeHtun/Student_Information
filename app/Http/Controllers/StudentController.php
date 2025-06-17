@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class StudentController extends Controller
     public function create()
     {
         return view('students.create', [
-            'departments' => \App\Models\Department::all(),
+            'departments' => Department::all(),
         ]);
     }
 
@@ -50,5 +51,38 @@ class StudentController extends Controller
         Student::create($request->all());
 
         return redirect()->route('students.index')->with('success', 'Student created successfully.');
+    }
+
+    public function edit($id)
+    {
+        $student = Student::findOrFail($id);
+        $departments = Department::all();
+
+        return view('students.edit', compact('student', 'departments'));
+    }
+    public function update(Request $request, $id)
+    {
+        $student = Student::findOrFail($id);
+        $student->update($request->only([
+            'student_name',
+            'email',
+            'phone',
+            'date_of_birth',
+            'gender',
+            'address',
+            'enrollment_date',
+            'department_id',
+            'current_semester',
+            'status',
+            'photo_url',
+        ]));
+        return redirect()->route('students.index')->with('success', 'Student updated successfully.');
+    }
+    public function destroy($id)
+    {
+        $student = Student::findOrFail($id);
+        $student->delete();
+
+        return redirect()->route('students.index')->with('success', 'Student deleted successfully.');
     }
 }

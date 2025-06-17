@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/twitter-bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap5.css')}}">
-
 </head>
 
 <body>
@@ -39,7 +38,7 @@
             </div>
         </div>
     </div>
-    
+
     <script src="{{ asset('js/jquery-3.7.1.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/dataTables.js') }}"></script>

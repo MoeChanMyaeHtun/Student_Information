@@ -12,7 +12,6 @@ enum CurrentSemester: string
     case ThirdYearSecond = '3rd year 2nd semester';
     case FourthYearFirst = '4th year 1st semester';
     case FourthYearSecond = '4th year 2nd semester';
-    case Finished = 'Finished';
 
     public static function values(): array
     {

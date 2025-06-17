@@ -37,4 +37,19 @@ class DepartmentController extends Controller
 
         return redirect()->route('departments.index')->with('success', 'Department created successfully.');
     }
+
+    public function edit($id)
+    {
+        $department = Department::findOrFail($id);
+        return view('departments.edit', compact('department'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $department = Department::findOrFail($id);
+        $department->update([
+            'department_name' => $request->department_name,
+        ]);
+        return redirect()->route('departments.index')->with('success', 'Department updated successfully.');
+    }
 }

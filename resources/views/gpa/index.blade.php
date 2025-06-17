@@ -4,15 +4,15 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Department</li>
+            <li class="breadcrumb-item active" aria-current="page">GPA List</li>
         </ol>
     </nav>
     @if(session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
     @endif
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4 class="font-weight-bold">Department List</h4>
-        <a href="{{ route('departments.create') }}" class="btn btn-primary">
+        <h4 class="font-weight-bold">GPA List</h4>
+        <a href="{{ route('gpas.create') }}" class="btn btn-primary">
             <i class="fas fa-plus"></i> Create
         </a>
     </div>
@@ -20,19 +20,27 @@
         <table id="departmentsTable" class="table table-bordered table-striped nowrap" style="width:100%">
             <thead class="table-light">
                 <tr>
-                    <th>Department Id</th>
-                    <th>Department Name</th>
-                    <th>Actions</th>
+                    <th>GPA ID</th>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Semester</th>
+                    <th>Department</th>
+                    <th>GPA</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($departments as $department)
+                @foreach($gpas as $gpa)
                 <tr>
-                    <td>{{ $department->department_id }}</td>
-                    <td>{{ $department->department_name }}</td>
+                    <td>{{ $gpa->gpa_id }}</td>
+                    <td>{{ $gpa->student->student_id }}</td>
+                    <td>{{ $gpa->student->student_name }}</td>
+                    <td>{{ $gpa->semester }}</td>
+                    <td>{{ $gpa->student->department->department_name }}</td>
+                    <td>{{ $gpa->gpa }}</td>
                     <td>
                         <div class="d-flex justify-content-center align-items-center">
-                            <a href="{{ route('departments.edit', $department->department_id) }}" class="btn btn-sm btn-warning me-2">
+                            <a href="{{ route('gpas.edit', $gpa->gpa_id) }}" class="btn btn-sm btn-warning me-2">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
                         </div>

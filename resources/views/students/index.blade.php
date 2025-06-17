@@ -38,7 +38,7 @@
             <tbody>
                 @foreach($students as $student)
                 <tr>
-                    <td>{{ $student->id }}</td>
+                    <td>{{ $student->student_id }}</td>
                     <td>
                         @if($student->photo)
                         <img src="{{ asset('storage/photos/' . $student->photo) }}" width="50" height="50" alt="Photo">
@@ -57,13 +57,42 @@
                     <td>{{ $student->current_semester }}</td>
                     <td>{{ $student->status }}</td>
                     <td>
-
+                        <div class="d-flex justify-content-center align-items-center">
+                            <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-warning me-2">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $student->id }}">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
                     </td>
                 </tr>
+
+                <div class="modal fade" id="deleteModal{{ $student->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $student->id }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel{{ $student->id }}">Confirm Delete</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete student <strong>{{ $student->student_name }}</strong>?
+                            </div>
+                            <div class="modal-footer">
+                                <form method="POST" action="{{ route('students.delete', $student->id) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 @endforeach
             </tbody>
+
         </table>
     </div>
 </div>
-
 @endsection
