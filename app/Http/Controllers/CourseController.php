@@ -29,7 +29,7 @@ class CourseController extends Controller
     {
         $validated = $request->validate([
             'course_name' => 'required|string|max:255',
-            'department_id' => 'required|exists:department,department_id',
+            'department_id' => 'required|exists:department,id',
             'credits' => 'required|integer|min:1',
             'semester' => 'required|in:' . implode(',', \App\Enums\CurrentSemester::values()),
             'teacher_id' => 'required|exists:teacher,teacher_id',

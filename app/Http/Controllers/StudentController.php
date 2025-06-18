@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Department;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class StudentController extends Controller
 {
@@ -26,13 +27,13 @@ class StudentController extends Controller
     {
         $validated = $request->validate([
             'student_name' => 'required|string|max:255',
-            'email' => 'required|email|unique:student,email',
+            'email' => "required|email|unique:student,email,{$request->id}",
             'phone' => 'nullable|string|max:15',
             'date_of_birth' => 'required|date',
             'gender' => 'required|in:' . implode(',', \App\Enums\Gender::values()),
             'address' => 'nullable|string|max:255',
             'enrollment_date' => 'required|date',
-            'department_id' => 'required|exists:department,department_id',
+            'department_id' => 'required|exists:department,id',
             'current_semester' => 'required|in:' . implode(',', \App\Enums\CurrentSemester::values()),
             'status' => 'required|in:' . implode(',', \App\Enums\StudentStatus::values()),
             'photo_url' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -46,7 +47,10 @@ class StudentController extends Controller
 
     public function store(Request $request)
     {
-        $request['student_id'] =  Student::count() + 1;
+        $latestStudent = Student::latest('id')->first();
+        $studentId = 'ST' . Str::padLeft(($latestStudent ? $latestStudent->id : 0) + 1, 3, '0');
+
+        $request['student_id'] = $studentId;
 
         Student::create($request->all());
 

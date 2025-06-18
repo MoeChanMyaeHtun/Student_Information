@@ -24,7 +24,6 @@
                     <th>Student ID</th>
                     <th>Student Name</th>
                     <th>Semester</th>
-                    <th>Department</th>
                     <th>GPA</th>
                     <th>Action</th>
                 </tr>
@@ -36,7 +35,6 @@
                     <td>{{ $gpa->student->student_id }}</td>
                     <td>{{ $gpa->student->student_name }}</td>
                     <td>{{ $gpa->semester }}</td>
-                    <td>{{ $gpa->student->department->department_name }}</td>
                     <td>{{ $gpa->gpa }}</td>
                     <td>
                         <div class="d-flex justify-content-center align-items-center">

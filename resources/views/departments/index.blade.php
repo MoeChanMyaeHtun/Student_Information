@@ -20,7 +20,7 @@
         <table id="departmentsTable" class="table table-bordered table-striped nowrap" style="width:100%">
             <thead class="table-light">
                 <tr>
-                    <th>Department Id</th>
+                    <th class="w-25 text-center">Department Id</th>
                     <th>Department Name</th>
                     <th>Actions</th>
                 </tr>
@@ -28,11 +28,11 @@
             <tbody>
                 @foreach($departments as $department)
                 <tr>
-                    <td>{{ $department->department_id }}</td>
+                    <td class="text-center">{{ $department->department_id }}</td>
                     <td>{{ $department->department_name }}</td>
                     <td>
                         <div class="d-flex justify-content-center align-items-center">
-                            <a href="{{ route('departments.edit', $department->department_id) }}" class="btn btn-sm btn-warning me-2">
+                            <a href="{{ route('departments.edit', $department->id) }}" class="btn btn-sm btn-warning me-2">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
                         </div>

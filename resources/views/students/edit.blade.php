@@ -13,6 +13,8 @@
 
     <form action="{{ route('students.create.validate') }}" method="POST" enctype="multipart/form-data">
         @csrf
+    
+            <input type="hidden" name="id" value="{{$student->id}}">
         <div class="row mb-3">
             <div class="col">
                 <label for="student_name" class="form-label">Name</label><span class="text-danger">*</span>
@@ -97,7 +99,7 @@
                 <select name="department_id" class="form-select @error('department_id') is-invalid @enderror">
                     <option value="" disabled>Select Department</option>
                     @foreach($departments as $department)
-                    <option value="{{ $department->department_id }}" {{ old('department_id', $student->department_id) == $department->department_id ? 'selected' : '' }}>
+                    <option value="{{ $department->id }}" {{ old('department_id', $student->department_id) == $department->department_id ? 'selected' : '' }}>
                         {{ $department->department_name }}
                     </option>
                     @endforeach
@@ -143,6 +145,7 @@
         <form method="POST" action="{{ route('students.update',$student->id) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
+            <input type="hidden" name="id" value="{{$student->id}}">
             <input type="hidden" name="student_name" value="{{ old('student_name') }}">
             <input type="hidden" name="email" value="{{ old('email') }}">
             <input type="hidden" name="phone" value="{{ old('phone') }}">

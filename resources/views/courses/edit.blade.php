@@ -28,8 +28,8 @@
                 <select name="department_id" class="form-control @error('department_id') is-invalid @enderror">
                     <option value="">Select Department</option>
                     @foreach($departments as $department)
-                    <option value="{{ $department->department_id }}"
-                        {{ old('department_id', $course->department_id ?? '') == $department->department_id ? 'selected' : '' }}>
+                    <option value="{{ $department->id }}"
+                        {{ old('id', $course->department_id ?? '') == $department->id ? 'selected' : '' }}>
                         {{ $department->department_name }}
                     </option>
                     @endforeach

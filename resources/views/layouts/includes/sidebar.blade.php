@@ -1,7 +1,7 @@
 <nav class="col-2 bg-light pe-3">
     <h1 class="h4 py-3 text-center text-primary">
         <i class="fas fa-ghost me-2"></i>
-        <span class="d-none d-md-inline">SRS Admin</span>
+        <span class="d-none d-md-inline">SIS Admin</span>
     </h1>
     <div class="list-group text-center text-lg-start">
         <span class="list-group-item disabled d-none d-lg-block">

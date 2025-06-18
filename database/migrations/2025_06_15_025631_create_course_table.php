@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('course_name');
             $table->foreign('teacher_id')->references('teacher_id')->on('teacher')->onDelete('cascade');
             $table->unsignedBigInteger('teacher_id')->nullable();
-            $table->foreign('department_id')->references('department_id')->on('department')->onDelete('cascade');
+            $table->foreign('department_id')->references('id')->on('department')->onDelete('cascade');
             $table->unsignedBigInteger('department_id')->nullable();
             $table->integer('credits');
             $table->enum('semester', ['1st year 1st semester', '1st year 2nd semester', '2nd year 1st semester', '2nd year 2nd semester', '3rd year 1st semester', '3rd year 2nd semester', '4th year 1st semester', '4th year 2nd semester']);

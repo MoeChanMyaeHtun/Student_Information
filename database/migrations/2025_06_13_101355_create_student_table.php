@@ -21,7 +21,7 @@ return new class extends Migration
             $table->enum('gender', ['Male', 'Female', 'Prefer not to say', 'Other'])->default('Prefer not to say');
             $table->string('address')->nullable();
             $table->date('enrollment_date');
-            $table->foreign('department_id')->references('department_id')->on('department')->onDelete('cascade');
+            $table->foreign('department_id')->references('id')->on('department')->onDelete('cascade');
             $table->unsignedBigInteger('department_id')->nullable();
             $table->enum('current_semester', ['1st year 1st semester', '1st year 2nd semester', '2nd year 1st semester', '2nd year 2nd semester', '3rd year 1st semester', '3rd year 2nd semester', '4th year 1st semester', '4th year 2nd semester']);
             $table->enum('status', ['Active', 'On Leave', 'Suspended', 'Graduated', 'Withdrawn'])->default('Active');

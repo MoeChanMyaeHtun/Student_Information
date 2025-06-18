@@ -15,7 +15,7 @@ class StudentSeeder extends Seeder
     {
         DB::table('student')->insert([
             [
-                'student_id' => 'S001',
+                'student_id' => 'ST001',
                 'student_name' => 'John Doe',
                 'email' => 'john@example.com',
                 'phone' => '1234567890',
@@ -31,7 +31,7 @@ class StudentSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'student_id' => 'S002',
+                'student_id' => 'ST002',
                 'student_name' => 'Jane Smith',
                 'email' => 'jane@example.com',
                 'phone' => '9876543210',
@@ -47,7 +47,7 @@ class StudentSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'student_id' => 'S003',
+                'student_id' => 'ST003',
                 'student_name' => 'Alex Johnson',
                 'email' => 'alex@example.com',
                 'phone' => '5555555555',
@@ -63,7 +63,7 @@ class StudentSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'student_id' => 'S004',
+                'student_id' => 'ST004',
                 'student_name' => 'Emma Watson',
                 'email' => 'emma@example.com',
                 'phone' => '4444444444',
@@ -79,7 +79,7 @@ class StudentSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'student_id' => 'S005',
+                'student_id' => 'ST005',
                 'student_name' => 'Liam Brown',
                 'email' => 'liam@example.com',
                 'phone' => '3333333333',

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class DepartmentController extends Controller
 {
@@ -33,6 +34,9 @@ class DepartmentController extends Controller
 
     public function store(Request $request)
     {
+        $latestDepartment = Department::latest('id')->first();
+        $departmentCode = 'D' . Str::padLeft(($latestDepartment ? $latestDepartment->id : 0) + 1, 3, '0');
+        $request['department_id'] = $departmentCode;
         Department::create($request->all());
 
         return redirect()->route('departments.index')->with('success', 'Department created successfully.');
